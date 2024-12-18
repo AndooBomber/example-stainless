@@ -38,8 +38,6 @@ export type StoreInventoryResponse = Record<string, number>;
 export interface StoreCreateOrderParams {
   id?: number;
 
-  amount?: number;
-
   complete?: boolean;
 
   petId?: number;

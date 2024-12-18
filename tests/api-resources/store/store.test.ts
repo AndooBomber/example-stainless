@@ -33,7 +33,6 @@ describe('resource store', () => {
       client.store.createOrder(
         {
           id: 10,
-          amount: 100,
           complete: true,
           petId: 198772,
           quantity: 7,
