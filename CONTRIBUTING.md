@@ -42,15 +42,15 @@ If you’d like to use the repository from source, you can either install from g
 To install via git:
 
 ```sh
-$ npm install git+ssh://git@github.com:stainless-sdks/example-stainless-node.git
+$ npm install git+ssh://git@github.com:AndooBomber/example-stainless.git
 ```
 
 Alternatively, to link a local copy of the repo:
 
 ```sh
 # Clone
-$ git clone https://www.github.com/stainless-sdks/example-stainless-node
-$ cd example-stainless-node
+$ git clone https://www.github.com/AndooBomber/example-stainless
+$ cd example-stainless
 
 # With yarn
 $ yarn link
