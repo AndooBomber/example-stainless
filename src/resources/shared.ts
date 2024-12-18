@@ -3,6 +3,8 @@
 export interface Order {
   id?: number;
 
+  amount?: number;
+
   complete?: boolean;
 
   petId?: number;
