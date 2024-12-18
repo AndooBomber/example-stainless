@@ -4,6 +4,7 @@ export * from './shared';
 export {
   Pets,
   type APIResponse,
+  type Category,
   type Pet,
   type PetFindByStatusResponse,
   type PetFindByTagsResponse,
