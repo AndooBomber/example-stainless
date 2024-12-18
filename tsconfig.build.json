@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "example-stainless/*": ["dist/src/*"],
-      "example-stainless": ["dist/src/index.ts"],
+      "fuando-example-stainless/*": ["dist/src/*"],
+      "fuando-example-stainless": ["dist/src/index.ts"],
     },
     "noEmit": false,
     "declaration": true,

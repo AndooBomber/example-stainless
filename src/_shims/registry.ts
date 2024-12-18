@@ -42,12 +42,12 @@ export let isFsReadStream: Shims['isFsReadStream'] | undefined = undefined;
 export function setShims(shims: Shims, options: { auto: boolean } = { auto: false }) {
   if (auto) {
     throw new Error(
-      `you must \`import 'example-stainless/shims/${shims.kind}'\` before importing anything else from example-stainless`,
+      `you must \`import 'fuando-example-stainless/shims/${shims.kind}'\` before importing anything else from fuando-example-stainless`,
     );
   }
   if (kind) {
     throw new Error(
-      `can't \`import 'example-stainless/shims/${shims.kind}'\` after \`import 'example-stainless/shims/${kind}'\``,
+      `can't \`import 'fuando-example-stainless/shims/${shims.kind}'\` after \`import 'fuando-example-stainless/shims/${kind}'\``,
     );
   }
   auto = options.auto;
