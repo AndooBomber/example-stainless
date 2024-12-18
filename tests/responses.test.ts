@@ -1,5 +1,5 @@
-import { createResponseHeaders } from 'example-stainless/core';
-import { Headers } from 'example-stainless/_shims/index';
+import { createResponseHeaders } from 'fuando-example-stainless/core';
+import { Headers } from 'fuando-example-stainless/_shims/index';
 
 describe('response parsing', () => {
   // TODO: test unicode characters
