@@ -1,6 +1,6 @@
 # Petstore Node API Library
 
-[![NPM version](https://img.shields.io/npm/v/fuando-example-stainless-2.svg)](https://npmjs.org/package/fuando-example-stainless-2) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/fuando-example-stainless-2)
+[![NPM version](https://img.shields.io/npm/v/fuando-example-stainless.svg)](https://npmjs.org/package/fuando-example-stainless) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/fuando-example-stainless)
 
 This library provides convenient access to the Petstore REST API from server-side TypeScript or JavaScript.
 
@@ -11,7 +11,7 @@ It is generated with [Stainless](https://www.stainlessapi.com/).
 ## Installation
 
 ```sh
-npm install fuando-example-stainless-2
+npm install fuando-example-stainless
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import Petstore from 'fuando-example-stainless-2';
+import Petstore from 'fuando-example-stainless';
 
 const client = new Petstore({
   apiKey: process.env['PETSTORE_API_KEY'], // This is the default and can be omitted
@@ -41,7 +41,7 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import Petstore from 'fuando-example-stainless-2';
+import Petstore from 'fuando-example-stainless';
 
 const client = new Petstore({
   apiKey: process.env['PETSTORE_API_KEY'], // This is the default and can be omitted
@@ -210,11 +210,11 @@ add the following import before your first import `from "Petstore"`:
 ```ts
 // Tell TypeScript and the package to use the global web fetch instead of node-fetch.
 // Note, despite the name, this does not add any polyfills, but expects them to be provided if needed.
-import 'fuando-example-stainless-2/shims/web';
-import Petstore from 'fuando-example-stainless-2';
+import 'fuando-example-stainless/shims/web';
+import Petstore from 'fuando-example-stainless';
 ```
 
-To do the inverse, add `import "fuando-example-stainless-2/shims/node"` (which does import polyfills).
+To do the inverse, add `import "fuando-example-stainless/shims/node"` (which does import polyfills).
 This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/AndooBomber/example-stainless/tree/main/src/_shims#readme)).
 
 ### Logging and middleware
@@ -224,7 +224,7 @@ which can be used to inspect or alter the `Request` or `Response` before/after e
 
 ```ts
 import { fetch } from 'undici'; // as one example
-import Petstore from 'fuando-example-stainless-2';
+import Petstore from 'fuando-example-stainless';
 
 const client = new Petstore({
   fetch: async (url: RequestInfo, init?: RequestInit): Promise<Response> => {

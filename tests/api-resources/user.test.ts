@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Petstore from 'fuando-example-stainless-2';
+import Petstore from 'fuando-example-stainless';
 import { Response } from 'node-fetch';
 
 const client = new Petstore({
