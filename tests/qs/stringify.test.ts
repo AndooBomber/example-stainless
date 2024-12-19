@@ -1,7 +1,7 @@
 import iconv from 'iconv-lite';
-import { stringify } from 'fuando-example-stainless/internal/qs';
-import { encode } from 'fuando-example-stainless/internal/qs/utils';
-import { StringifyOptions } from 'fuando-example-stainless/internal/qs/types';
+import { stringify } from 'fuando-example-stainless-hoge/internal/qs';
+import { encode } from 'fuando-example-stainless-hoge/internal/qs/utils';
+import { StringifyOptions } from 'fuando-example-stainless-hoge/internal/qs/types';
 import { empty_test_cases } from './empty-keys-cases';
 import assert from 'assert';
 

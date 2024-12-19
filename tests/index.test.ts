@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Petstore from 'fuando-example-stainless';
-import { APIUserAbortError } from 'fuando-example-stainless';
-import { Headers } from 'fuando-example-stainless/core';
+import Petstore from 'fuando-example-stainless-hoge';
+import { APIUserAbortError } from 'fuando-example-stainless-hoge';
+import { Headers } from 'fuando-example-stainless-hoge/core';
 import defaultFetch, { Response, type RequestInit, type RequestInfo } from 'node-fetch';
 
 describe('instantiate client', () => {
