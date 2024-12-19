@@ -1,6 +1,6 @@
 {
-  "name": "fuando-example-stainless",
-  "version": "0.1.0-alpha.1",
+  "name": "fuando-example-stainless-2",
+  "version": "0.1.0-alpha.2",
   "description": "The official TypeScript library for the Petstore API",
   "author": "Petstore <example@example.com>",
   "types": "dist/index.d.ts",
@@ -59,8 +59,8 @@
     "./shims/web.mjs"
   ],
   "imports": {
-    "fuando-example-stainless": ".",
-    "fuando-example-stainless/*": "./src/*"
+    "fuando-example-stainless-2": ".",
+    "fuando-example-stainless-2/*": "./src/*"
   },
   "exports": {
     "./_shims/auto/*": {

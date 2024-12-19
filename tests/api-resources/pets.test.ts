@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Petstore, { toFile } from 'fuando-example-stainless';
+import Petstore, { toFile } from 'fuando-example-stainless-2';
 import { Response } from 'node-fetch';
 
 const client = new Petstore({
@@ -26,6 +26,7 @@ describe('resource pets', () => {
       photoUrls: ['string'],
       id: 10,
       category: { id: 1, name: 'Dogs' },
+      first: 'dogger',
       status: 'available',
       tags: [{ id: 0, name: 'name' }],
     });
@@ -66,6 +67,7 @@ describe('resource pets', () => {
       photoUrls: ['string'],
       id: 10,
       category: { id: 1, name: 'Dogs' },
+      first: 'dogger',
       status: 'available',
       tags: [{ id: 0, name: 'name' }],
     });

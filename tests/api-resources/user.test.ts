@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Petstore from 'fuando-example-stainless';
+import Petstore from 'fuando-example-stainless-2';
 import { Response } from 'node-fetch';
 
 const client = new Petstore({
@@ -33,6 +33,7 @@ describe('resource user', () => {
       client.user.create(
         {
           id: 10,
+          age: 20,
           email: 'john@email.com',
           firstName: 'John',
           lastName: 'James',
@@ -89,6 +90,7 @@ describe('resource user', () => {
         'username',
         {
           id: 10,
+          age: 20,
           email: 'john@email.com',
           firstName: 'John',
           lastName: 'James',
@@ -135,6 +137,7 @@ describe('resource user', () => {
     const response = await client.user.createWithList([
       {
         id: 10,
+        age: 20,
         email: 'john@email.com',
         firstName: 'John',
         lastName: 'James',
