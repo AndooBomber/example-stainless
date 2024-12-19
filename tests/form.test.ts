@@ -1,6 +1,6 @@
-import { multipartFormRequestOptions, createForm } from 'fuando-example-stainless-2/core';
-import { Blob } from 'fuando-example-stainless-2/_shims/index';
-import { toFile } from 'fuando-example-stainless-2';
+import { multipartFormRequestOptions, createForm } from 'fuando-example-stainless/core';
+import { Blob } from 'fuando-example-stainless/_shims/index';
+import { toFile } from 'fuando-example-stainless';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {
