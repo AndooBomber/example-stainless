@@ -9,9 +9,9 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "fuando-example-stainless-hoge/_shims/auto/*": ["src/_shims/auto/*-node"],
-      "fuando-example-stainless-hoge/*": ["src/*"],
-      "fuando-example-stainless-hoge": ["src/index.ts"]
+      "fuando-example-stainless/_shims/auto/*": ["src/_shims/auto/*-node"],
+      "fuando-example-stainless/*": ["src/*"],
+      "fuando-example-stainless": ["src/index.ts"]
     },
     "noEmit": true,
 

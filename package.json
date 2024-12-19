@@ -1,5 +1,5 @@
 {
-  "name": "fuando-example-stainless-hoge",
+  "name": "fuando-example-stainless",
   "version": "0.1.0-alpha.1",
   "description": "The official TypeScript library for the Petstore API",
   "author": "Petstore <example@example.com>",
@@ -59,8 +59,8 @@
     "./shims/web.mjs"
   ],
   "imports": {
-    "fuando-example-stainless-hoge": ".",
-    "fuando-example-stainless-hoge/*": "./src/*"
+    "fuando-example-stainless": ".",
+    "fuando-example-stainless/*": "./src/*"
   },
   "exports": {
     "./_shims/auto/*": {
