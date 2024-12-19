@@ -55,12 +55,12 @@ $ cd example-stainless
 # With yarn
 $ yarn link
 $ cd ../my-package
-$ yarn link fuando-example-stainless-hoge
+$ yarn link fuando-example-stainless
 
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global fuando-example-stainless-hoge
+$ pnpm link -—global fuando-example-stainless
 ```
 
 ## Running tests

@@ -7,9 +7,9 @@ const config: JestConfigWithTsJest = {
     '^.+\\.(t|j)sx?$': ['@swc/jest', { sourceMaps: 'inline' }],
   },
   moduleNameMapper: {
-    '^fuando-example-stainless-hoge$': '<rootDir>/src/index.ts',
-    '^fuando-example-stainless-hoge/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
-    '^fuando-example-stainless-hoge/(.*)$': '<rootDir>/src/$1',
+    '^fuando-example-stainless$': '<rootDir>/src/index.ts',
+    '^fuando-example-stainless/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
+    '^fuando-example-stainless/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [
     '<rootDir>/ecosystem-tests/',
