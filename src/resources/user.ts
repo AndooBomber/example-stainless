@@ -98,9 +98,13 @@ export class UserResource extends APIResource {
 export interface User {
   id?: number;
 
+  age?: number;
+
   email?: string;
 
   firstName?: string;
+
+  fullName?: string;
 
   lastName?: string;
 
@@ -121,9 +125,13 @@ export type UserLoginResponse = string;
 export interface UserCreateParams {
   id?: number;
 
+  age?: number;
+
   email?: string;
 
   firstName?: string;
+
+  fullName?: string;
 
   lastName?: string;
 
@@ -142,9 +150,13 @@ export interface UserCreateParams {
 export interface UserUpdateParams {
   id?: number;
 
+  age?: number;
+
   email?: string;
 
   firstName?: string;
+
+  fullName?: string;
 
   lastName?: string;
 

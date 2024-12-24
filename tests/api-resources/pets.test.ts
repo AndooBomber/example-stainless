@@ -26,6 +26,7 @@ describe('resource pets', () => {
       photoUrls: ['string'],
       id: 10,
       category: { id: 1, name: 'Dogs' },
+      first: 'dogger',
       status: 'available',
       tags: [{ id: 0, name: 'name' }],
     });
@@ -66,6 +67,7 @@ describe('resource pets', () => {
       photoUrls: ['string'],
       id: 10,
       category: { id: 1, name: 'Dogs' },
+      first: 'dogger',
       status: 'available',
       tags: [{ id: 0, name: 'name' }],
     });

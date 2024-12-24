@@ -141,6 +141,8 @@ export interface Pet {
 
   category?: Category;
 
+  first?: string;
+
   /**
    * pet status in the store
    */
@@ -170,6 +172,8 @@ export interface PetCreateParams {
 
   category?: Category;
 
+  first?: string;
+
   /**
    * pet status in the store
    */
@@ -194,6 +198,8 @@ export interface PetUpdateParams {
   id?: number;
 
   category?: Category;
+
+  first?: string;
 
   /**
    * pet status in the store

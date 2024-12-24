@@ -33,8 +33,10 @@ describe('resource user', () => {
       client.user.create(
         {
           id: 10,
+          age: 20,
           email: 'john@email.com',
           firstName: 'John',
+          fullName: 'John James',
           lastName: 'James',
           password: '12345',
           phone: '12345',
@@ -89,8 +91,10 @@ describe('resource user', () => {
         'username',
         {
           id: 10,
+          age: 20,
           email: 'john@email.com',
           firstName: 'John',
+          fullName: 'John James',
           lastName: 'James',
           password: '12345',
           phone: '12345',
@@ -135,8 +139,10 @@ describe('resource user', () => {
     const response = await client.user.createWithList([
       {
         id: 10,
+        age: 20,
         email: 'john@email.com',
         firstName: 'John',
+        fullName: 'John James',
         lastName: 'James',
         password: '12345',
         phone: '12345',
