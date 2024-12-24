@@ -104,6 +104,8 @@ export interface User {
 
   firstName?: string;
 
+  fullName?: string;
+
   lastName?: string;
 
   password?: string;
@@ -129,6 +131,8 @@ export interface UserCreateParams {
 
   firstName?: string;
 
+  fullName?: string;
+
   lastName?: string;
 
   password?: string;
@@ -151,6 +155,8 @@ export interface UserUpdateParams {
   email?: string;
 
   firstName?: string;
+
+  fullName?: string;
 
   lastName?: string;
 
