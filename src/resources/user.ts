@@ -80,11 +80,7 @@ export class UserResource extends APIResource {
     if (isRequestOptions(query)) {
       return this.login({}, query);
     }
-    return this._client.get('/user/login', {
-      query,
-      ...options,
-      headers: { Accept: 'application/json', ...options?.headers },
-    });
+    return this._client.get('/user/login', { query, ...options });
   }
 
   /**
