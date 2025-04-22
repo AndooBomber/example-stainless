@@ -1,2 +1,4 @@
 configured_endpoints: 19
 openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/gaudiy%2Fexample-stainless-d44fc0d9c8c02ac5f89875751921b8d8d34400202848c57cb7157d222a1d2964.yml
+openapi_spec_hash: 5d8b7639689845a884386aeb103e42ab
+config_hash: da111b84ee9bdc38b48b55b4b62435b8
