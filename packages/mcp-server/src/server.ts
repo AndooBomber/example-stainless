@@ -11,7 +11,7 @@ export { endpoints } from './tools';
 export const server = new McpServer(
   {
     name: 'fuando_example_stainless_api',
-    version: '0.1.0-alpha.1',
+    version: '0.1.0-alpha.2',
   },
   {
     capabilities: {
