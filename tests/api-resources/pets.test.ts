@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Petstore, { toFile } from 'fuando-example-stainless';
-import { Response } from 'node-fetch';
 
 const client = new Petstore({
   apiKey: 'My API Key',
@@ -26,6 +25,7 @@ describe('resource pets', () => {
       photoUrls: ['string'],
       id: 10,
       category: { id: 1, name: 'Dogs' },
+      first: 'dogger',
       status: 'available',
       tags: [{ id: 0, name: 'name' }],
     });
@@ -40,13 +40,6 @@ describe('resource pets', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('retrieve: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.pets.retrieve(0, { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Petstore.NotFoundError,
-    );
   });
 
   test('update: only required params', async () => {
@@ -66,6 +59,7 @@ describe('resource pets', () => {
       photoUrls: ['string'],
       id: 10,
       category: { id: 1, name: 'Dogs' },
+      first: 'dogger',
       status: 'available',
       tags: [{ id: 0, name: 'name' }],
     });
@@ -82,13 +76,6 @@ describe('resource pets', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('delete: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.pets.delete(0, { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Petstore.NotFoundError,
-    );
-  });
-
   test('findByStatus', async () => {
     const responsePromise = client.pets.findByStatus();
     const rawResponse = await responsePromise.asResponse();
@@ -98,13 +85,6 @@ describe('resource pets', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('findByStatus: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.pets.findByStatus({ path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Petstore.NotFoundError,
-    );
   });
 
   test('findByStatus: request options and params are passed correctly', async () => {
@@ -125,13 +105,6 @@ describe('resource pets', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('findByTags: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.pets.findByTags({ path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Petstore.NotFoundError,
-    );
-  });
-
   test('findByTags: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -139,8 +112,8 @@ describe('resource pets', () => {
     ).rejects.toThrow(Petstore.NotFoundError);
   });
 
-  test('updateById', async () => {
-    const responsePromise = client.pets.updateById(0);
+  test('updateByID', async () => {
+    const responsePromise = client.pets.updateByID(0);
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -150,24 +123,15 @@ describe('resource pets', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('updateById: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.pets.updateById(0, { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Petstore.NotFoundError,
-    );
-  });
-
-  test('updateById: request options and params are passed correctly', async () => {
+  test('updateByID: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.pets.updateById(0, { name: 'name', status: 'status' }, { path: '/_stainless_unknown_path' }),
+      client.pets.updateByID(0, { name: 'name', status: 'status' }, { path: '/_stainless_unknown_path' }),
     ).rejects.toThrow(Petstore.NotFoundError);
   });
 
-  test('uploadImage: only required params', async () => {
-    const responsePromise = client.pets.uploadImage(0, {
-      image: await toFile(Buffer.from('# my file contents'), 'README.md'),
-    });
+  test('uploadImage', async () => {
+    const responsePromise = client.pets.uploadImage(0);
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -177,10 +141,17 @@ describe('resource pets', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('uploadImage: required and optional params', async () => {
-    const response = await client.pets.uploadImage(0, {
-      image: await toFile(Buffer.from('# my file contents'), 'README.md'),
-      additionalMetadata: 'additionalMetadata',
-    });
+  test('uploadImage: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.pets.uploadImage(
+        0,
+        {
+          additionalMetadata: 'additionalMetadata',
+          image: await toFile(Buffer.from('# my file contents'), 'README.md'),
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Petstore.NotFoundError);
   });
 });

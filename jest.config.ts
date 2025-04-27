@@ -8,7 +8,6 @@ const config: JestConfigWithTsJest = {
   },
   moduleNameMapper: {
     '^fuando-example-stainless$': '<rootDir>/src/index.ts',
-    '^fuando-example-stainless/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
     '^fuando-example-stainless/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [

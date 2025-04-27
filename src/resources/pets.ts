@@ -1,39 +1,40 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../resource';
-import { isRequestOptions } from '../core';
-import * as Core from '../core';
-import { type BlobLike } from '../uploads';
+import { APIResource } from '../core/resource';
+import { APIPromise } from '../core/api-promise';
+import { buildHeaders } from '../internal/headers';
+import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class Pets extends APIResource {
   /**
    * Add a new pet to the store
    */
-  create(body: PetCreateParams, options?: Core.RequestOptions): Core.APIPromise<Pet> {
+  create(body: PetCreateParams, options?: RequestOptions): APIPromise<Pet> {
     return this._client.post('/pet', { body, ...options });
   }
 
   /**
    * Returns a single pet
    */
-  retrieve(petId: number, options?: Core.RequestOptions): Core.APIPromise<Pet> {
-    return this._client.get(`/pet/${petId}`, options);
+  retrieve(petID: number, options?: RequestOptions): APIPromise<Pet> {
+    return this._client.get(path`/pet/${petID}`, options);
   }
 
   /**
    * Update an existing pet by Id
    */
-  update(body: PetUpdateParams, options?: Core.RequestOptions): Core.APIPromise<Pet> {
+  update(body: PetUpdateParams, options?: RequestOptions): APIPromise<Pet> {
     return this._client.put('/pet', { body, ...options });
   }
 
   /**
    * delete a pet
    */
-  delete(petId: number, options?: Core.RequestOptions): Core.APIPromise<void> {
-    return this._client.delete(`/pet/${petId}`, {
+  delete(petID: number, options?: RequestOptions): APIPromise<void> {
+    return this._client.delete(path`/pet/${petID}`, {
       ...options,
-      headers: { Accept: '*/*', ...options?.headers },
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
     });
   }
 
@@ -41,17 +42,9 @@ export class Pets extends APIResource {
    * Multiple status values can be provided with comma separated strings
    */
   findByStatus(
-    query?: PetFindByStatusParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<PetFindByStatusResponse>;
-  findByStatus(options?: Core.RequestOptions): Core.APIPromise<PetFindByStatusResponse>;
-  findByStatus(
-    query: PetFindByStatusParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<PetFindByStatusResponse> {
-    if (isRequestOptions(query)) {
-      return this.findByStatus({}, query);
-    }
+    query: PetFindByStatusParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<PetFindByStatusResponse> {
     return this._client.get('/pet/findByStatus', { query, ...options });
   }
 
@@ -60,42 +53,25 @@ export class Pets extends APIResource {
    * for testing.
    */
   findByTags(
-    query?: PetFindByTagsParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<PetFindByTagsResponse>;
-  findByTags(options?: Core.RequestOptions): Core.APIPromise<PetFindByTagsResponse>;
-  findByTags(
-    query: PetFindByTagsParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<PetFindByTagsResponse> {
-    if (isRequestOptions(query)) {
-      return this.findByTags({}, query);
-    }
+    query: PetFindByTagsParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<PetFindByTagsResponse> {
     return this._client.get('/pet/findByTags', { query, ...options });
   }
 
   /**
    * Updates a pet in the store with form data
    */
-  updateById(
-    petId: number,
-    params?: PetUpdateByIDParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<void>;
-  updateById(petId: number, options?: Core.RequestOptions): Core.APIPromise<void>;
-  updateById(
-    petId: number,
-    params: PetUpdateByIDParams | Core.RequestOptions = {},
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<void> {
-    if (isRequestOptions(params)) {
-      return this.updateById(petId, {}, params);
-    }
-    const { name, status } = params;
-    return this._client.post(`/pet/${petId}`, {
+  updateByID(
+    petID: number,
+    params: PetUpdateByIDParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<void> {
+    const { name, status } = params ?? {};
+    return this._client.post(path`/pet/${petID}`, {
       query: { name, status },
       ...options,
-      headers: { Accept: '*/*', ...options?.headers },
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
     });
   }
 
@@ -103,17 +79,16 @@ export class Pets extends APIResource {
    * uploads an image
    */
   uploadImage(
-    petId: number,
-    params: PetUploadImageParams,
-    options?: Core.RequestOptions,
-  ): Core.APIPromise<APIResponse> {
-    const { image, additionalMetadata } = params;
-    return this._client.post(`/pet/${petId}/uploadImage`, {
+    petID: number,
+    params: PetUploadImageParams | null | undefined = undefined,
+    options?: RequestOptions,
+  ): APIPromise<APIResponse> {
+    const { additionalMetadata, image } = params ?? {};
+    return this._client.post(path`/pet/${petID}/uploadImage`, {
       query: { additionalMetadata },
       body: image,
       ...options,
-      headers: { 'Content-Type': 'application/octet-stream', ...options?.headers },
-      __binaryRequest: true,
+      headers: buildHeaders([{ 'Content-Type': 'application/octet-stream' }, options?.headers]),
     });
   }
 }
@@ -140,6 +115,8 @@ export interface Pet {
   id?: number;
 
   category?: Category;
+
+  first?: string;
 
   /**
    * pet status in the store
@@ -170,6 +147,8 @@ export interface PetCreateParams {
 
   category?: Category;
 
+  first?: string;
+
   /**
    * pet status in the store
    */
@@ -194,6 +173,8 @@ export interface PetUpdateParams {
   id?: number;
 
   category?: Category;
+
+  first?: string;
 
   /**
    * pet status in the store
@@ -239,14 +220,14 @@ export interface PetUpdateByIDParams {
 
 export interface PetUploadImageParams {
   /**
-   * Body param:
-   */
-  image: string | ArrayBufferView | ArrayBuffer | BlobLike;
-
-  /**
    * Query param: Additional Metadata
    */
   additionalMetadata?: string;
+
+  /**
+   * Body param:
+   */
+  image?: string | ArrayBuffer | ArrayBufferView | Blob | DataView;
 }
 
 export declare namespace Pets {
